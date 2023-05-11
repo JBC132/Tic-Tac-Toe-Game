@@ -1,3 +1,4 @@
+from TicTacToe import HumanPlayer, RandomComputerPlater 
 class TicTacToe:
     def __init__(self):
         self.board = [' ' for _ in range(9)]
@@ -81,4 +82,3 @@ def play(game, x_player, o_player, print_game = True):
 
         if print_game:
             print('Tied')
-            
