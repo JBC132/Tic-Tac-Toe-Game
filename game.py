@@ -45,6 +45,16 @@ class TicTacToe:
         column = [self.board[col_ind+i*3] for i in range(3)]
         if all([spot == letter for spot in column]):
             return True
+        
+        if square % 2 == 0:
+            diagonal1 = [self.board[i] for i in [0,4,8]]
+            if all([spot == letter for spot in diagonal1[1]]):
+                return True
+            diagonal2 = [self.board[i] for i in [2,4,6]]
+            if all([spot == letter for spot in diagonal2[2]]):
+                return True    
+        
+        return False
     
 def play(game, x_player, o_player, print_game = True):
     if print_game:
