@@ -2,7 +2,8 @@
 
 Created TicTacToe game using Python3
 
-![](result.PNG)
+![](result_1.PNG)
+![](result_2.PNG)
 
 ## Dependency
 
