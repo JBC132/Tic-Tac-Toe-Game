@@ -43,7 +43,7 @@ class GeniusComputerPlayer(Player):
         if len(game.available_moves()) == 9:
             square = random.choice(game.available_moves())
         else:
-            square = self.minmax(game, self.letter)
+            square = self.minimax(game, self.letter)['position']
         return square
 
     def minimax(self, state, player):
@@ -52,8 +52,8 @@ class GeniusComputerPlayer(Player):
 
         if state.current_winner == other_player:
             return {'position': None,
-                    'score': 1 * (state.num_empty_square() + 1) if other_player == max_player 
-                    else -1 * (state.num_empty_square() + 1)
+                    'score': 1 * (state.num_empty_squares() + 1) if other_player == max_player 
+                    else -1 * (state.num_empty_squares() + 1)
                     }
         
         elif not state.empty_squares():
