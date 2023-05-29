@@ -80,14 +80,33 @@ def play(game, x_player, o_player, print_game = True):
                     print(letter + 'wins.')
                 return letter
             letter = 'O' if letter == 'X' else 'X'
-
-        time.sleep(0.8)
+        if print_game:
+            time.sleep(0.8)
         
     if print_game:
         print('Tied')
 
 if __name__ == '__main__':
+    '''
     x_player = HumanPlayer('X')
     o_player = GeniusComputerPlayer('O')
     t = TicTacToe()
     play(t,x_player, o_player, print_game=True)
+    '''
+    
+    x_wins = 0
+    o_wins = 0
+    ties = 0
+    for i in range(1000):
+        x_player = RandomComputerPlayer('X')
+        o_player = GeniusComputerPlayer('O')
+        t = TicTacToe()
+        result = play(t,x_player, o_player, print_game=True)
+        if result == 'X':
+            x_wins += 1
+        elif result == 'O':
+            o_wins += 1
+        else:
+            ties += 1
+    
+    print(f'After 1000 iterations, {x_wins} X wins, {o_wins} O wins, {ties} ties.')
